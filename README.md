@@ -1,6 +1,5 @@
-#data-structures
-
-This is a copy of the work I did on a private repo, originally a project from
-[Hack Reactor's](http://hackreactor.com) curriculum. This project was worked
-on with a pair; it's representative of the kind of problems that I've tackled,
-but not of my solo work.
+#data-structures @ Hack Reactor 
+===
+> This material covers an intro to data structures including hash tables,
+> graphs and linked lists. A binary search tree is implemented and other
+> topics include simple stack and queue implementations. 
