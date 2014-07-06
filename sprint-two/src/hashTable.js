@@ -21,6 +21,15 @@ HashTable.prototype.retrieve = function(k){
   return false;
 };
 
+// In reality, we would not set this to null but the specs 
+// are looking for a removed key to have a "null" value
 HashTable.prototype.remove = function(k){
+  var i = getIndexBelowMaxForKey(k, this._limit);
+
+  for (var j = 0; j < this._storage[i].length; j++) {
+      if (this._storage[i][j][0] === k) {
+        this._storage[i][j][1] = null;
+      } 
+  }
 };
 
