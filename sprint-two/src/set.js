@@ -1,3 +1,7 @@
+// Sets are structures that will be added to ES6 so they will be available
+// in native Javascript. In the mean time I've implemented a version that
+// will allow for constant time lookups much like the proposed data structure
+
 var makeSet = function(){
   var set = Object.create(setPrototype);
   set._storage = {};
