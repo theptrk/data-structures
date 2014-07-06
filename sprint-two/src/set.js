@@ -7,10 +7,12 @@ var makeSet = function(){
 var setPrototype = {};
 
 setPrototype.add = function(item){
-    return this._storage[item] = true;
+    this._storage[item] = true;
+    return this._storage[item];
 };
 
 setPrototype.contains = function(item){
+    return this._storage[item] || false;
 };
 
 setPrototype.remove = function(item){
