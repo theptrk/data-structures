@@ -19,6 +19,10 @@ var makeLinkedList = function(){
     list.head = list.head.next;
   };
 
+  // This linked list is implemted as a singly linked list and due to the
+  // lack of a reference to the previous node, we must initiate a contains 
+  // function with the head as the starting point of our search. All nodes
+  // are visited until we reach a node containing our target or we return false.
   list.contains = function(target, node){
 
     node = node || this.head;
