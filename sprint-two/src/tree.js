@@ -30,9 +30,9 @@ treeMethods.contains = function(target){
 };
 
 Object.prototype.extend = function(obj) {
-    for (var prop in obj) {
-        if (obj.hasOwnProperty(prop)) {
-            this[prop] = obj[prop];
-        }
+  for (var prop in obj) {
+    if (obj.hasOwnProperty(prop)) {
+      this[prop] = obj[prop];
     }
+  }
 };
