@@ -1,9 +1,8 @@
 var makeStack = function() {
   var instance = {};
 
-  // Use an object with numeric keys to store values
   instance.storage = {};
-  instance.sizeOf = 0; // Hint: set an initial value here
+  instance.sizeOf = 0;
 
   instance = _.extend(instance, stackMethods);
 
@@ -25,5 +24,4 @@ stackMethods.pop = function(){
 
 stackMethods.size = function(){
   return this.sizeOf;
-  //console.log( this.sizeOf);
 };
