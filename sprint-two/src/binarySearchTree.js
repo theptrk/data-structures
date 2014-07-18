@@ -30,7 +30,25 @@ binaryTreeMethods.insert = function(value, node) {
   }
 };
 
-binaryTreeMethods.contains = function(value) {
+binaryTreeMethods.contains = function(value, node) {
+
+  node = node || this;
+  
+  if (value === node.value) {return true;}
+
+  if (value > node.value) {
+    if (node.right === null) {
+      return false;
+    } else {
+      return this.contains(value,node.right);
+    }
+  } else {
+    if (node.left === null) {
+      return false;
+    } else {
+      return this.contains(value,node.left);
+    }
+  }
 };
 
 binaryTreeMethods.depthFirstLog = function(value) {
