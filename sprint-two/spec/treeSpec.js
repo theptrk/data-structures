@@ -44,4 +44,26 @@ describe("tree", function() {
     assert.isTrue(tree.contains(8));
   });
 
+  it("should find the maximum value in a tree", function(){
+    tree.addChild(8);
+    tree.addChild(2);
+    tree.children[0].addChild(10);
+    tree.children[1].addChild(6);
+    tree.children[1].addChild(12);
+    expect(tree.maxValue()).to.equal(12);
+  });
+
+  it("should find the height of a tree", function(){
+    tree.addChild(1);
+    tree.addChild(2);
+    tree.children[0].addChild(3);
+    tree.children[1].addChild(4);
+    tree.children[1].addChild(5);
+    expect(tree.height()).to.equal(3);
+    tree.children[1].children[0].addChild(5);
+    expect(tree.height()).to.equal(4);
+  });
+
+
+
 });
