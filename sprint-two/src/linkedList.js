@@ -29,6 +29,7 @@ var makeLinkedList = function(){
     node = node || this.head;
 
     if (node.value === target) { return true; }
+    
     if (node.next !== null) {
       return this.contains(target, node.next);
     }
@@ -64,7 +65,46 @@ var makeLinkedList = function(){
     }
   };
 
+  // functions returning functions
+  list.count_functional = function(node) {
+    if (node.next === null) {
+      return 1;
+    }
+    return list.count_functional(node.next) + 1;
+  };
+
+  list.max_functional = function(node){
+    if (node.next === null) {
+      return node.value;
+    }
+    return Math.max(list.max_functional(node.next), node.value);
+  };
+
+  list.sum_functional = function(node) {
+    if (node.next === null) {
+      return node.value;
+    }
+    return list.sum_functional(node.next) + node.value;
+  };
+
+  list.reduce = function(iterator, accumulator) {
+    var node = this.head;
+    accumulator = this.head.value;
+
+    while(node.next !== null){
+      accumulator = iterator(accumulator, node.next.value);
+      node = node.next;
+    }
+
+    return accumulator;
+  };
+
   return list;
+};
+
+// Just in case helper function
+var isLeaf = function(node){
+  return node.next === null ? true: false;
 };
 
 var makeNode = function(value){
@@ -77,6 +117,8 @@ var makeNode = function(value){
 
 linkedList = makeLinkedList();
 linkedList.addToTail(4);
-linkedList.addToTail(4);
-linkedList.addToTail(4);
-console.log(linkedList.count_recursive()); 
+linkedList.addToTail(40);
+linkedList.addToTail(400);
+//console.log(linkedList.max_functional(linkedList.head)); 
+//console.log(linkedList.reduce(function(a,b){return a + b;}));
+console.log(linkedList.sum_functional(linkedList.head)); 
